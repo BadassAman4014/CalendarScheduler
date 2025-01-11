@@ -119,7 +119,7 @@
   }
   
   .calendar-body .cell {
-    height: 9rem; /* Smaller cells */
+    height: 10rem; /* Smaller cells */
     background-color: white;
     cursor: pointer;
     padding: 0.5rem;

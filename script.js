@@ -94,6 +94,7 @@ const prepareDOMElements = () => {
   alertDanger = document.querySelector(".alert-danger");
 
   toggleHolidays = document.querySelector(".toggle");
+  
 };
 
 const prepareDOMEvents = () => {

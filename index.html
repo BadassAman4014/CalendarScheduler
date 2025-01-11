@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo Calendar</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Add necessary CSS here */
+      .main-container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .calendar-container {
+        flex: 1;
+        background-color: rgb(255, 255, 255);
+        padding: 10px;
+        max-width: 80%;
+        transform: scale(1);
+      }
+
+      .task-list-container {
+        width: 30%;
+        background-color: #f1f1f1;
+        padding: 10px;
+        border-radius: 10px;
+        margin-left: 10px;
+      }
+
+      .task-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .task-list .task {
+        background-color: #1c64f2;
+        color: white;
+        padding: 10px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+      }
+
+      .task-list .task:nth-child(even) {
+        background-color: #f39c12;
+      }
+
+      .task-list .task:nth-child(odd) {
+        background-color: #27ae60;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- Calendar Section -->
+      <div class="calendar-container">
+        <div class="toolbar-header">
+          <div>
+            <button type="button" class="today-button">Today</button>
+            <div class="month-navigation">
+              <button type="button" class="circle previous-month">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button type="button" class="circle next-month">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+            <div class="current-date">
+              <span class="month"></span>&nbsp;
+              <span class="year"></span>
+            </div>
+          </div>
+          <div class="holidays">
+            <span>Holidays:</span>
+            <div class="toggle"></div>
+          </div>
+        </div>
+        <div class="alert-danger">
+          <span class="title">Error!</span>
+        </div>
+        <div class="calendar-body"></div>
+      </div>
+
+      <!-- Task List Section -->
+      <div class="task-list-container">
+        <h3>Doctor's Tasks</h3>
+        <ul class="task-list">
+          <li class="task">Check Patient's Blood Pressure</li>
+          <li class="task">Update Patient Records</li>
+          <li class="task">Prepare for Surgery</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Modal for Add Task -->
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <div class="title">Add task</div>
+        <span class="modal-date">3.02.2023</span>
+        <button data-close-button="" class="close-button">
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="menage-task">
+          <div class="colors">
+            <div class="select-color active"><div class="item sky"></div></div>
+            <div class="select-color"><div class="item yellow"></div></div>
+            <div class="select-color"><div class="item indigo"></div></div>
+            <div class="select-color"><div class="item lime"></div></div>
+          </div>
+          <input type="text" placeholder="Task title" class="task-title" />
+        </div>
+        <div class="task-list"></div>
+        <div class="error hide"></div>
+      </div>
+      <div class="modal-footer">
+        <div>
+          <button type="button" class="button-save">Save</button>
+          <button type="button" class="button-add">Add</button>
+          <button type="button" class="button-cancel">Cancel</button>
+        </div>
+        <div>
+          <button type="button" class="button-delete">Delete</button>
+        </div>
+      </div>
+    </div>
+    <div id="overlay"></div>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
